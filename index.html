@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple, accessible to-do list to organize your day.">
+  <meta name="theme-color" content="#111827">
+  <title>TaskFlow | Your To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="TaskFlow home">
+        <span class="brand-mark" aria-hidden="true">✓</span>
+        <span>TaskFlow</span>
+      </a>
+      <span class="topbar-note">A little progress adds up.</span>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">YOUR PERSONAL SPACE</p>
+      <h1 id="page-title">Make today <span>count.</span></h1>
+      <p class="intro-copy">Capture what matters, one task at a time.</p>
+    </section>
+
+    <section class="todo-card" aria-label="To-do list">
+      <form id="todoForm" class="add-form">
+        <label class="sr-only" for="todoInput">Add a task</label>
+        <input
+          id="todoInput"
+          name="todo"
+          type="text"
+          maxlength="120"
+          placeholder="What needs to get done?"
+          autocomplete="off"
+          aria-describedby="inputHelp"
+          required
+        >
+        <button id="addButton" class="add-button" type="submit">
+          <span aria-hidden="true">＋</span> Add task
+        </button>
+      </form>
+      <p id="inputHelp" class="input-help">Press Enter or select Add task.</p>
+
+      <div class="list-toolbar">
+        <div>
+          <h2>Your tasks</h2>
+          <p id="taskCount" class="task-count" aria-live="polite">0 tasks remaining</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Active</button>
+          <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+        </div>
+      </div>
+
+      <ul id="todoList" class="todo-list" aria-label="Tasks">
+        <li class="empty-state" id="emptyState">
+          <span class="empty-icon" aria-hidden="true">✦</span>
+          <strong>Your list is clear.</strong>
+          <span>Add a task above to get started.</span>
+        </li>
+      </ul>
+
+      <div class="card-footer">
+        <span id="totalCount">0 total tasks</span>
+        <button id="clearCompleted" class="text-button" type="button">Clear completed</button>
+      </div>
+      <p id="statusMessage" class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+
+    <footer class="page-footer">
+      <span>Stay focused. You've got this.</span>
+      <span>TaskFlow <span aria-hidden="true">•</span> 2026</span>
+    </footer>
+  </main>
+</body>
+</html>
